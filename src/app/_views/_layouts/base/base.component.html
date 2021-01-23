@@ -1,0 +1,83 @@
+<mat-sidenav-container class="hrm-mat-sidenav-container">
+    <mat-sidenav #sidenav [mode]="mode" fixedInViewport="true" [(opened)]="isSidenavOpened"
+        (closedStart)="onSidenavClosedStart()">
+        <div class="sidenav-content-container">
+            <div class="sidenav-content-header py-2 px-4">
+                <img class="hrm-pointer" src="assets/images/logos/logo-horizontal.png" height="50"
+                    routerLink="/dashboard">
+            </div>
+            <div class="sidenav-content-body p-4">
+                <ul class="list-unstyled">
+                    <li class="py-2" routerLink="/dashboard" routerLinkActive="activeLink"
+                        [routerLinkActiveOptions]="{exact:true}" *ngIf="isHR">
+                        <i class="las la-home mr-2"></i>
+                        Home
+                    </li>
+                    <li class="py-2" routerLink="/employees/edit/0" routerLinkActive="activeLink"
+                        [routerLinkActiveOptions]="{exact:
+                        true}" *ngIf="isHR">
+                        <i class="las la-calendar-plus mr-2"></i>
+                        New employee
+                    </li>
+                    <li class="py-2" routerLink="/employees" routerLinkActive="activeLink"
+                        [routerLinkActiveOptions]="{exact:true}" *ngIf="isHR">
+                        <i class="las la-calendar mr-2"></i>
+                        Employees
+                    </li>
+                    <li class="py-2" routerLink="/leaves/all" routerLinkActive="activeLink"
+                        [routerLinkActiveOptions]="{exact:true}" *ngIf="isHR">
+                        <i class="las la-ticket-alt mr-2"></i>
+                        All leave requests
+                    </li>
+                    <li class="py-2" routerLink="/leaves/my-leaves" routerLinkActive="activeLink"
+                        [routerLinkActiveOptions]="{exact:true}">
+                        <i class="las la-ticket-alt mr-2"></i>
+                        My leave request
+                    </li>
+                    <li class="py-2" routerLink="/leaves/edit/0" routerLinkActive="activeLink"
+                        [routerLinkActiveOptions]="{exact:true}">
+                        <i class="las la-ticket-alt mr-2"></i>
+                        Request leave
+                    </li>
+                </ul>
+            </div>
+            <div class="sidenav-content-footer px-4">
+                <ul class="list-unstyled">
+                    <li class="py-2" (click)="signout()">
+                        <i class="las la-sign-out-alt mr-2"></i>
+                        Logout
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <hrm-header></hrm-header>
+
+        <div style="height: 90vh; overflow: auto;">
+            <router-outlet></router-outlet>
+        </div>
+
+        <!--A2H section+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+        <div class="banner-wrapper" *ngIf="promptEvent">
+            <div class="a2h-section">
+                <ul class="list-unstyled">
+                    <li>
+                        <p class="h4">Add to your home screen</p>
+                    </li>
+                    <li class="my-2">
+                        <span class="badge badge-primary badge-pill badge-install" (click)="installPwa()">
+                            Install
+                        </span>
+                    </li>
+                    <li>
+                        <span class="badge badge-light badge-pill badge-cancel" (click)="hideBanner()">
+                            Not now
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

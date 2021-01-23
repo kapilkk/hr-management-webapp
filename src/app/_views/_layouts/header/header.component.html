@@ -1,0 +1,20 @@
+<mat-toolbar color="primary" class="hrm-toolbar">
+    <mat-toolbar-row>
+        <mat-icon class="header-icon hrm-pointer" aria-hidden="false" aria-label="sidenav toggle icon"
+            (click)="sidenavToggled()">menu
+        </mat-icon>
+        <span class="header-spacer"></span>
+        <span *ngIf="currentEmployeeData">
+            <img class="employee-icon" src="assets/images/icons/employee.png" alt="employee icon">
+
+            <!-- <mat-menu #profileMenu="matMenu" xPosition="before">
+                <button mat-menu-item disableRipple="true" disabled="true">
+                    {{currentEmployeeData.first_name}} {{currentEmployeeData.last_name}}
+                </button>
+                <button mat-menu-item disableRipple="true" disabled="true">
+                    {{currentEmployeeData.email}}
+                </button>
+            </mat-menu> -->
+        </span>
+    </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,54 @@
+<div class="card-container bg-white" style="padding: 2px 5px">
+    <div class="row">
+        <div class="col-12 pt-3">
+            <p class="h4 mb-2 pl-3">Recent leave requests</p>
+
+            <table mat-table [dataSource]="leavesDataSource">
+
+                <!-- title Column -->
+                <ng-container matColumnDef="title">
+                    <th mat-header-cell *matHeaderCellDef> Title </th>
+                    <td mat-cell *matCellDef="let leave"> {{leave.title}} </td>
+                </ng-container>
+
+                <!-- employee Column -->
+                <ng-container matColumnDef="employee">
+                    <th mat-header-cell *matHeaderCellDef> Employee </th>
+                    <td mat-cell *matCellDef="let leave">
+                        {{leave.employee.first_name}} {{leave.employee.last_name}}
+                    </td>
+                </ng-container>
+
+                <!-- start-date Column -->
+                <ng-container matColumnDef="start_date">
+                    <th mat-header-cell *matHeaderCellDef> Start-date </th>
+                    <td mat-cell *matCellDef="let leave"> {{leave.start_date | date}} </td>
+                </ng-container>
+
+                <!-- end-date Column -->
+                <ng-container matColumnDef="end_date">
+                    <th mat-header-cell *matHeaderCellDef> End-date </th>
+                    <td mat-cell *matCellDef="let leave"> {{leave.end_date | date}} </td>
+                </ng-container>
+
+                <!-- status Column -->
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                    <td mat-cell *matCellDef="let leave">
+                        <span class="badge badge-pill py-1 px-2" [ngClass]="{
+                            'badge-secondary': leave.status == 'APPLIED',
+                            'badge-primary': leave.status == 'INPROGRESS',
+                            'badge-danger': leave.status == 'REJECTED',
+                            'badge-success': leave.status == 'APPROVED'
+                            }">
+                            {{leave.status}}
+                        </span>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+</div>

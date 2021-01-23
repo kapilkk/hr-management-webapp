@@ -1,0 +1,120 @@
+<div class="container-fluid">
+    <div class="row justify-content-center mt-3">
+        <div class="col-12 col-md-8">
+            <form [formGroup]="leaveRequestForm" (ngSubmit)="onSubmitLeaveRequestForm()">
+                <div class="form-row">
+                    <div class="form-group col-12 col-md-6">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Title</mat-label>
+                            <input type="text" aria-label="email" matInput formControlName="title" tabIndex="1">
+                            <mat-error
+                                *ngIf="leaveRequestForm.get('title').errors?.required && leaveRequestForm.controls['title'].touched">
+                                Title is required
+                            </mat-error>
+                            <mat-error *ngIf="leaveRequestForm.get('title').errors?.minlength">
+                                Title is minlength
+                            </mat-error>
+                            <mat-error *ngIf="leaveRequestForm.get('title').errors?.maxlength">
+                                Title is maxlength
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Choose an option</mat-label>
+                            <mat-select matNativeControl formControlName="leave_type" tabIndex="2">
+                                <mat-option [value]="leave_type.value" *ngFor="let leave_type of leaveTypeList">
+                                    {{leave_type.title}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error
+                                *ngIf="leaveRequestForm.get('leave_type').errors?.required && leaveRequestForm.controls['leave_type'].touched">
+                                leave_type is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group col-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Choose an option</mat-label>
+                            <mat-select matNativeControl formControlName="day_type"
+                                (selectionChange)="onSelectDayType($event)" tabIndex="3">
+                                <mat-option [value]="day_type.value" *ngFor="let day_type of dayTypeList">
+                                    {{day_type.title}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error
+                                *ngIf="leaveRequestForm.get('day_type').errors?.required && leaveRequestForm.controls['day_type'].touched">
+                                day_type is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12 col-md-6">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Start Date</mat-label>
+                            <input matInput [matDatepicker]="startDatePicker" [matDatepickerFilter]="myFilter"
+                                formControlName="start_date" (dateChange)="onChangeStartDate('change', $event)"
+                                [min]="minStartDate" placeholder="Start Date" tabIndex="4">
+                            <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                            <mat-datepicker #startDatePicker [touchUi]="'true'"></mat-datepicker>
+                            <mat-error
+                                *ngIf="leaveRequestForm.get('start_date').errors?.required && leaveRequestForm.controls['start_date'].touched">
+                                Start Date is required
+                            </mat-error>
+                            <mat-error *ngIf="leaveRequestForm.get('start_date').errors?.matDatepickerParse ||
+                                    leaveRequestForm.get('start_date').errors?.matDatepickerMin || 
+                                    leaveRequestForm.get('start_date').errors?.matDatepickerMax">
+                                Start Date is invalid
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <mat-form-field appearance="outline">
+                            <mat-label>End Date</mat-label>
+                            <input matInput [matDatepicker]="endDatePicker" [matDatepickerFilter]="myFilter"
+                                formControlName="end_date" [min]="minEndDate" placeholder="End Date" tabIndex="5">
+                            <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+                            <mat-datepicker #endDatePicker [touchUi]="'true'"></mat-datepicker>
+                            <mat-error
+                                *ngIf="leaveRequestForm.get('end_date').errors?.required && leaveRequestForm.controls['end_date'].touched">
+                                End Date is required
+                            </mat-error>
+                            <mat-error *ngIf="leaveRequestForm.get('end_date').errors?.matDatepickerParse ||
+                                    leaveRequestForm.get('end_date').errors?.matDatepickerMin || 
+                                    leaveRequestForm.get('end_date').errors?.matDatepickerMax">
+                                End Date is invalid
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Reason</mat-label>
+                            <textarea type="text" aria-label="reason" matInput formControlName="reason"
+                                tabIndex="6"></textarea>
+                            <mat-error
+                                *ngIf="leaveRequestForm.get('reason').errors?.required && leaveRequestForm.controls['reason'].touched">
+                                Reason is required
+                            </mat-error>
+                            <mat-error *ngIf="leaveRequestForm.get('reason').errors?.minlength">
+                                Reason is minlength
+                            </mat-error>
+                            <mat-error *ngIf="leaveRequestForm.get('reason').errors?.maxlength">
+                                Reason is maxlength
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <button mat-flat-button color="primary" type="submit" [disabled]="leaveRequestForm.invalid">
+                            APPLY
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="card-container bg-white">
+    <div class="row">
+        <div class="col-12 pt-3 col-leaves">
+            <p class="h4 mb-2 pl-3">Employees on leave today</p>
+
+            <div *ngIf="!isFetchingData">
+                <mat-list>
+                    <mat-list-item *ngFor="let leave of leavesList">
+                        <img src="assets/images/icons/employee.png" height="50" alt="employee icon">
+                        <div mat-line>{{leave.title}}</div>
+                        <div mat-line>
+                            <p class="mb-0 text-muted">
+                                {{leave.employee.first_name}} {{leave.employee.last_name}}
+                            </p>
+                        </div>
+                    </mat-list-item>
+                </mat-list>
+
+                <div class="p-3" *ngIf="leavesList.length == 0">
+                    <img class="img-fluid" src="assets/images/misc/no_absentees_state.png" alt="no absentees">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

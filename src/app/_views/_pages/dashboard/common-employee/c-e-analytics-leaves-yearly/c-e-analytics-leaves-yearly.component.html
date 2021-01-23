@@ -1,0 +1,23 @@
+<div class="row mt-3" *ngIf="leavesSummary">
+    <div class="col-12 col-md-4 p-2">
+        <div class="card-container">
+            <p class="h6 text-muted">Casual leaves</p>
+
+            <p class="h3 mb-0">{{leavesSummary.casual}} / 6</p>
+        </div>
+    </div>
+    <div class="col-12 col-md-4 p-2">
+        <div class="card-container">
+            <p class="h6 text-muted">Earned leaves</p>
+
+            <p class="h3 mb-0">{{leavesSummary.earned}} / 12</p>
+        </div>
+    </div>
+    <div class="col-12 col-md-4 p-2">
+        <div class="card-container">
+            <p class="h6 text-muted">Sick leaves</p>
+
+            <p class="h3 mb-0">{{leavesSummary.sick}} / 12</p>
+        </div>
+    </div>
+</div>

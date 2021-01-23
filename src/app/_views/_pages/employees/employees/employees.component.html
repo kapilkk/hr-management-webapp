@@ -1,0 +1,152 @@
+<div class="container-fluid">
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="form-row">
+                <div class="form-group col-12 col-md-10">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Search customer by name</mat-label>
+                        <input aria-label="searched text" matInput [(ngModel)]="searchedText" required>
+                    </mat-form-field>
+                </div>
+                <div class="form-group col-12 col-md-2">
+                    <button class="btn-search" mat-flat-button color="primary" (click)="onSearchEmployee()"
+                        [disabled]="searchedText == ''">
+                        <mat-icon>search</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-3">
+            <div class="card-container">
+                <div>
+                    <label id="gender-radio-group-label">Gender</label>
+                    <mat-radio-group aria-labelledby="gender-radio-group-label" class="filter-category-radio-group"
+                        [(ngModel)]="filterCategories.gender">
+                        <mat-radio-button class="gender-radio-button" value="MALE">
+                            Male
+                        </mat-radio-button>
+                        <mat-radio-button class="gender-radio-button" value="FEMALE">
+                            Female
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+
+                <div>
+                    <label id="team-radio-group-label">Team</label>
+                    <mat-radio-group aria-labelledby="team-radio-group-label" class="filter-category-radio-group"
+                        [(ngModel)]="filterCategories.team">
+                        <mat-radio-button class="example-radio-button" *ngFor="let team of teamsList"
+                            [value]="team.value" (change)="onSelectTeam($event.value)">
+                            {{team.title}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+
+                <div>
+                    <label id="position-radio-group-label">Position</label>
+                    <mat-radio-group aria-labelledby="position-radio-group-label" class="filter-category-radio-group"
+                        [(ngModel)]="filterCategories.position">
+                        <mat-radio-button class="position-radio-button" *ngFor="let position of filteredPositionsList"
+                            [value]="position.value">
+                            {{position.title}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+
+                <div>
+                    <button mat-flat-button color="primary" (click)="onFilterEmployees()">
+                        FILTER
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-9">
+            <table mat-table multiTemplateDataRows [dataSource]="filteredEmployeesDataSource">
+
+                <ng-container matColumnDef="first_name">
+                    <th mat-header-cell *matHeaderCellDef> First name </th>
+                    <td mat-cell *matCellDef="let employee"> {{employee.first_name}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="last_name">
+                    <th mat-header-cell *matHeaderCellDef> Last name </th>
+                    <td mat-cell *matCellDef="let employee">
+                        {{employee.last_name}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef> Email </th>
+                    <td mat-cell *matCellDef="let employee">
+                        {{employee.email}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="phone">
+                    <th mat-header-cell *matHeaderCellDef> Phone </th>
+                    <td mat-cell *matCellDef="let employee">
+                        {{employee.phone}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="dob">
+                    <th mat-header-cell *matHeaderCellDef> DOB </th>
+                    <td mat-cell *matCellDef="let employee"> {{employee.dob | date}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="gender">
+                    <th mat-header-cell *matHeaderCellDef> Gender </th>
+                    <td mat-cell *matCellDef="let employee">
+                        {{employee.gender}}
+                    </td>
+                </ng-container>
+
+                <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+                <ng-container matColumnDef="expandedDetail">
+                    <td mat-cell *matCellDef="let employee" [attr.colspan]="displayedColumns.length">
+                        <div class="example-element-detail"
+                            [@detailExpand]="employee == expandedEmployee ? 'expanded' : 'collapsed'">
+                            <div class="row">
+                                <div class="col-4">
+                                    <p class="h6 text-muted mb-0">Team</p>
+                                    {{employee.team_name}}
+                                </div>
+                                <div class="col-4">
+                                    <p class="h6 text-muted mb-0">Position</p>
+                                    {{employee.position_name}}
+                                </div>
+                                <div class="col-4">
+                                    <p class="h6 text-muted mb-0">Salary</p>
+                                    {{employee.salary}}
+                                </div>
+                                <div class="col-4 my-3">
+                                    <p class="h6 text-muted mb-0">Permanent address</p>
+                                    {{employee.permanent_address}}
+                                </div>
+                                <div class="col-4 my-3">
+                                    <p class="h6 text-muted mb-0">Current address</p>
+                                    {{employee.current_address}}
+                                </div>
+                                <div class="col-4 my-3">
+                                    <button mat-flat-button color="primary"
+                                        [routerLink]="['/leaves/summary/employees', employee._id]">
+                                        View Leave Summary
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let employee; columns: displayedColumns;" class="example-element-row"
+                    [class.example-expanded-row]="expandedEmployee === employee"
+                    (click)="expandedEmployee = expandedEmployee === employee ? null : employee">
+                </tr>
+                <tr mat-row *matRowDef="let row; columns: ['expandedDetail'];"></tr>
+            </table>
+        </div>
+    </div>
+</div>
