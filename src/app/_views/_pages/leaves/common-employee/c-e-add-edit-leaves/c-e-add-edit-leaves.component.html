@@ -9,13 +9,13 @@
                             <input type="text" aria-label="email" matInput formControlName="title" tabIndex="1">
                             <mat-error
                                 *ngIf="leaveRequestForm.get('title').errors?.required && leaveRequestForm.controls['title'].touched">
-                                Title is required
+                                *this field is required
                             </mat-error>
                             <mat-error *ngIf="leaveRequestForm.get('title').errors?.minlength">
-                                Title is minlength
+                                *this field should have min 3 characters
                             </mat-error>
                             <mat-error *ngIf="leaveRequestForm.get('title').errors?.maxlength">
-                                Title is maxlength
+                                *this field should have max 30 characters
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -29,7 +29,7 @@
                             </mat-select>
                             <mat-error
                                 *ngIf="leaveRequestForm.get('leave_type').errors?.required && leaveRequestForm.controls['leave_type'].touched">
-                                leave_type is required
+                                *this field is required
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -44,7 +44,7 @@
                             </mat-select>
                             <mat-error
                                 *ngIf="leaveRequestForm.get('day_type').errors?.required && leaveRequestForm.controls['day_type'].touched">
-                                day_type is required
+                                *this field is required
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -60,12 +60,12 @@
                             <mat-datepicker #startDatePicker [touchUi]="'true'"></mat-datepicker>
                             <mat-error
                                 *ngIf="leaveRequestForm.get('start_date').errors?.required && leaveRequestForm.controls['start_date'].touched">
-                                Start Date is required
+                                *this field is required
                             </mat-error>
                             <mat-error *ngIf="leaveRequestForm.get('start_date').errors?.matDatepickerParse ||
                                     leaveRequestForm.get('start_date').errors?.matDatepickerMin || 
                                     leaveRequestForm.get('start_date').errors?.matDatepickerMax">
-                                Start Date is invalid
+                                *this field is invalid
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -78,12 +78,12 @@
                             <mat-datepicker #endDatePicker [touchUi]="'true'"></mat-datepicker>
                             <mat-error
                                 *ngIf="leaveRequestForm.get('end_date').errors?.required && leaveRequestForm.controls['end_date'].touched">
-                                End Date is required
+                                *this field is required
                             </mat-error>
                             <mat-error *ngIf="leaveRequestForm.get('end_date').errors?.matDatepickerParse ||
                                     leaveRequestForm.get('end_date').errors?.matDatepickerMin || 
                                     leaveRequestForm.get('end_date').errors?.matDatepickerMax">
-                                End Date is invalid
+                                *this field is invalid
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -96,13 +96,13 @@
                                 tabIndex="6"></textarea>
                             <mat-error
                                 *ngIf="leaveRequestForm.get('reason').errors?.required && leaveRequestForm.controls['reason'].touched">
-                                Reason is required
+                                *this field is required
                             </mat-error>
                             <mat-error *ngIf="leaveRequestForm.get('reason').errors?.minlength">
-                                Reason is minlength
+                                *this field should have min 15 characters
                             </mat-error>
                             <mat-error *ngIf="leaveRequestForm.get('reason').errors?.maxlength">
-                                Reason is maxlength
+                                *this field should have max 250 characters
                             </mat-error>
                         </mat-form-field>
                     </div>

@@ -10,13 +10,13 @@
                                 tabIndex="1">
                             <mat-error
                                 *ngIf="employeeForm.get('first_name').errors?.required && employeeForm.controls['first_name'].touched">
-                                first_name is required
+                                *this field is required
                             </mat-error>
                             <mat-error *ngIf="employeeForm.get('first_name').errors?.minlength">
-                                first_name is minlength
+                                *this field should have min 3 characters
                             </mat-error>
                             <mat-error *ngIf="employeeForm.get('first_name').errors?.maxlength">
-                                first_name is maxlength
+                                *this field should have max 16 characters
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -26,13 +26,13 @@
                             <input type="text" aria-label="last_name" matInput formControlName="last_name" tabIndex="2">
                             <mat-error
                                 *ngIf="employeeForm.get('last_name').errors?.required && employeeForm.controls['last_name'].touched">
-                                last_name is required
+                                *this field is required
                             </mat-error>
                             <mat-error *ngIf="employeeForm.get('last_name').errors?.minlength">
-                                last_name is minlength
+                                *this field should have min 3 characters
                             </mat-error>
                             <mat-error *ngIf="employeeForm.get('last_name').errors?.maxlength">
-                                last_name is maxlength
+                                *this field should have max 16 characters
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -42,13 +42,10 @@
                             <input type="email" aria-label="email" matInput formControlName="email" tabIndex="3">
                             <mat-error
                                 *ngIf="employeeForm.get('email').errors?.required && employeeForm.controls['email'].touched">
-                                email is required
+                                *this field is required
                             </mat-error>
-                            <mat-error *ngIf="employeeForm.get('email').errors?.minlength">
-                                email is minlength
-                            </mat-error>
-                            <mat-error *ngIf="employeeForm.get('email').errors?.maxlength">
-                                email is maxlength
+                            <mat-error *ngIf="employeeForm.get('email').errors?.invalid">
+                                *this field is invalid
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -58,13 +55,10 @@
                             <input type="text" aria-label="phone" matInput formControlName="phone" tabIndex="4">
                             <mat-error
                                 *ngIf="employeeForm.get('phone').errors?.required && employeeForm.controls['phone'].touched">
-                                phone is required
+                                *this field is required
                             </mat-error>
-                            <mat-error *ngIf="employeeForm.get('phone').errors?.minlength">
-                                phone is minlength
-                            </mat-error>
-                            <mat-error *ngIf="employeeForm.get('phone').errors?.maxlength">
-                                phone is maxlength
+                            <mat-error *ngIf="employeeForm.get('phone').errors?.pattern">
+                                *this field is invalid(10 digit)
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -78,7 +72,7 @@
                             <mat-datepicker #dobPicker [touchUi]="'true'"></mat-datepicker>
                             <mat-error
                                 *ngIf="employeeForm.get('dob').errors?.required && employeeForm.controls['dob'].touched">
-                                Date of birth is required
+                                *this field is required
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -92,7 +86,7 @@
                             </mat-select>
                             <mat-error
                                 *ngIf="employeeForm.get('gender').errors?.required && employeeForm.controls['gender'].touched">
-                                gender is required
+                                *this field is required
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -108,7 +102,7 @@
                             </mat-select>
                             <mat-error
                                 *ngIf="employeeForm.get('team').errors?.required && employeeForm.controls['team'].touched">
-                                team is required
+                                *this field is required
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -123,7 +117,7 @@
                             </mat-select>
                             <mat-error
                                 *ngIf="employeeForm.get('position').errors?.required && employeeForm.controls['position'].touched">
-                                position is required
+                                *this field is required
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -133,7 +127,7 @@
                             <input type="number" aria-label="salary" matInput formControlName="salary" tabIndex="9">
                             <mat-error
                                 *ngIf="employeeForm.get('salary').errors?.required && employeeForm.controls['salary'].touched">
-                                salary is required
+                                *this field is required
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -144,7 +138,7 @@
                                 tabIndex="10"></textarea>
                             <mat-error
                                 *ngIf="employeeForm.get('permanent_address').errors?.required && employeeForm.controls['permanent_address'].touched">
-                                permanent_address is required
+                                *this field is required
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -155,12 +149,11 @@
                                 tabIndex="11"></textarea>
                             <mat-error
                                 *ngIf="employeeForm.get('current_address').errors?.required && employeeForm.controls['current_address'].touched">
-                                current_address is required
+                                *this field is required
                             </mat-error>
                         </mat-form-field>
                     </div>
                     <div class="form-group col-12">
-
                         <mat-checkbox class="example-margin" formControlName="is_address_same"
                             (change)="onChangeCheckbox($event.checked)" tabIndex="12">
                             Current address same as permanent address

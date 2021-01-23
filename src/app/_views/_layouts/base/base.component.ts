@@ -30,6 +30,8 @@ export class BaseComponent implements OnInit {
     //subscribing to promt event for pwa detection
     this._sharedService.promptEvent.subscribe(
       (data) => {
+        //console.log("PROMPT EVENT: ", data);
+        
         this.promptEvent = data;
       });
 

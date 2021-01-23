@@ -19,6 +19,8 @@ export class AppComponent {
     window.addEventListener('beforeinstallprompt', event => {
       event.preventDefault();
 
+      //console.log("EVENT", event);
+
       //event if shared with shared service to be usedd in base component or any other component
       this._sharedService.setPromptEvent(event);
     });
