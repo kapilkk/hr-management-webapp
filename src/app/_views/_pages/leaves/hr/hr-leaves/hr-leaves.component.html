@@ -30,9 +30,14 @@
                                 <img src="assets/images/icons/employee.png" alt="employee icon" height="40">
                             </li>
                             <li class="list-inline-item">
-                                <p class="text-muted">
+                                <p class="text-muted" *ngIf="leave.employee; else noEmployee;">
                                     {{leave.employee.first_name}} {{leave.employee.last_name}}
                                 </p>
+                                <ng-template #noEmployee>
+                                    <p class="text-muted">
+                                        NOT AVAILABLE
+                                    </p>
+                                </ng-template>
                             </li>
                         </ul>
 

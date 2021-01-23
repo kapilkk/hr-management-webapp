@@ -15,7 +15,12 @@
                 <ng-container matColumnDef="employee">
                     <th mat-header-cell *matHeaderCellDef> Employee </th>
                     <td mat-cell *matCellDef="let leave">
-                        {{leave.employee.first_name}} {{leave.employee.last_name}}
+                        <span *ngIf="leave.employee; else noEmployee;">
+                            {{leave.employee.first_name}} {{leave.employee.last_name}}
+                        </span>
+                        <ng-template #noEmployee>
+                            <span>NOT AVAILABLE</span>
+                        </ng-template>
                     </td>
                 </ng-container>
 

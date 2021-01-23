@@ -9,9 +9,14 @@
                         <img src="assets/images/icons/employee.png" height="50" alt="employee icon">
                         <div mat-line>{{leave.title}}</div>
                         <div mat-line>
-                            <p class="mb-0 text-muted">
+                            <p class="mb-0 text-muted" *ngIf="leave.employee; else noEmployee;">
                                 {{leave.employee.first_name}} {{leave.employee.last_name}}
                             </p>
+                            <ng-template #noEmployee>
+                                <p class="mb-0 text-muted">
+                                    NOT AVAILABLE
+                                </p>
+                            </ng-template>
                         </div>
                     </mat-list-item>
                 </mat-list>
