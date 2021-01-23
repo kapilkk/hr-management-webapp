@@ -9,7 +9,7 @@ import { throwError } from 'rxjs';
 export class BackendService {
 
   local_api_url: string = "http://localhost:5000/api";
-  prod_api_url: string = "https://hr-management-api.herokuapp.com/api"
+  prod_api_url: string = "https://hr-management-api.herokuapp.com/api";
   api_url: string = "";
 
   constructor(private _http: HttpClient) {

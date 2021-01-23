@@ -11,14 +11,14 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   local_api_url: string = "http://localhost:5000/api";
-  prod_api_url: string = ""
+  prod_api_url: string = "https://hr-management-api.herokuapp.com/api";
   api_url: string = "";
 
   constructor(private _http: HttpClient, private _router: Router) {
     if (window.location.hostname === "localhost")
       this.api_url = this.local_api_url;
     else
-      this.api_url = this.local_api_url;
+      this.api_url = this.prod_api_url;
   }
 
   //api function for logging in employee
