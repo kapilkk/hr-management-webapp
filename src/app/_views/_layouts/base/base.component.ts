@@ -27,14 +27,6 @@ export class BaseComponent implements OnInit {
         this.isSidenavOpened = data;
       });
 
-    //subscribing to promt event for pwa detection
-    this._sharedService.promptEvent.subscribe(
-      (data) => {
-        //console.log("PROMPT EVENT: ", data);
-        
-        this.promptEvent = data;
-      });
-
 
     //subscribing to screen breakpoints to handle the sidenav
     this._breakpointObserver.observe(['(orientation: landscape)']).subscribe(result => {
@@ -86,30 +78,6 @@ export class BaseComponent implements OnInit {
   signout() {
     this._authService.signout();
   }
-
-  //function to prompt UI for pwa install
-  installPwa() {
-    if (this.promptEvent) {
-      this.promptEvent.prompt();
-
-      this.promptEvent.userChoice.then((choice) => {
-        if (choice.outcome === 'accepted') {
-          console.log('User accepted the A2HS prompt');
-        } else {
-          console.log('User dismissed the A2HS prompt');
-        }
-
-        this.promptEvent = null;
-      });
-    }
-  }
-
-  //function to hide UI for pwa install
-  hideBanner() {
-    this.promptEvent = null;
-  }
-
-
 
 
 }

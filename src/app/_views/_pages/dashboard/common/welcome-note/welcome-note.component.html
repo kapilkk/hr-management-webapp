@@ -1,0 +1,34 @@
+<!-- <div class="card-container bg-white">
+    <div class="row">
+        <div class="col-12 py-3">
+            <p class="h4 mb-3 pl-3">Total employees</p>
+
+            <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType">
+            </canvas>
+        </div>
+    </div>
+</div> -->
+
+<div class="card-container bg-white py-3 px-2">
+    <div class="row align-items-center" *ngIf="currentEmployee.role != 'HR'; else isHR;">
+        <div class="col-12 col-md-6">
+            <p class="h1 mb-0">Hey {{currentEmployee.first_name}}, welcome back</p>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="py-1 px-5">
+                <img class="img-fluid welcome-img" src="assets/images/misc/welcome.png" alt="welcome">
+            </div>
+        </div>
+    </div>
+    <ng-template #isHR>
+        <div class="row">
+            <div class="col-12">
+                <p class="h4 mb-0">Hey {{currentEmployee.first_name}}, welcome back</p>
+
+                <div class="py-1 px-5">
+                    <img class="img-fluid welcome-img" src="assets/images/misc/welcome.png" alt="welcome">
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>

@@ -10,41 +10,79 @@
                 <ul class="list-unstyled">
                     <li class="py-2" routerLink="/dashboard" routerLinkActive="activeLink"
                         [routerLinkActiveOptions]="{exact:true}" *ngIf="isHR">
-                        <i class="las la-home mr-2"></i>
-                        Home
+                        <ul class="list-inline link-list">
+                            <li class="list-inline-item">
+                                <i class="las la-home mr-2"></i>
+                            </li>
+                            <li class="list-inline-item">
+                                Home
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="py-2" routerLink="/employees" routerLinkActive="activeLink"
+                        [routerLinkActiveOptions]="{exact:true}" *ngIf="isHR">
+                        <ul class="list-inline link-list">
+                            <li class="list-inline-item">
+                                <i class="las la-users mr-2"></i>
+                            </li>
+                            <li class="list-inline-item">
+                                Employees
+                            </li>
+                        </ul>
                     </li>
                     <li class="py-2" routerLink="/employees/edit/0" routerLinkActive="activeLink"
                         [routerLinkActiveOptions]="{exact:
                         true}" *ngIf="isHR">
-                        <i class="las la-calendar-plus mr-2"></i>
-                        New employee
-                    </li>
-                    <li class="py-2" routerLink="/employees" routerLinkActive="activeLink"
-                        [routerLinkActiveOptions]="{exact:true}" *ngIf="isHR">
-                        <i class="las la-calendar mr-2"></i>
-                        Employees
+                        <ul class="list-inline link-list">
+                            <li class="list-inline-item">
+                                <i class="las la-user-plus mr-2"></i>
+                            </li>
+                            <li class="list-inline-item">
+                                New Employee
+                            </li>
+                        </ul>
                     </li>
                     <li class="py-2" routerLink="/leaves/all" routerLinkActive="activeLink"
                         [routerLinkActiveOptions]="{exact:true}" *ngIf="isHR">
-                        <i class="las la-ticket-alt mr-2"></i>
-                        All leave requests
+                        <ul class="list-inline link-list">
+                            <li class="list-inline-item">
+                                <i class="las la-calendar mr-2"></i>
+                            </li>
+                            <li class="list-inline-item">
+                                Leave requests
+                            </li>
+                        </ul>
                     </li>
                     <li class="py-2" routerLink="/leaves/my-leaves" routerLinkActive="activeLink"
                         [routerLinkActiveOptions]="{exact:true}">
-                        <i class="las la-ticket-alt mr-2"></i>
-                        My leave request
+                        <ul class="list-inline link-list">
+                            <li class="list-inline-item">
+                                <i class="las la-calendar mr-2"></i>
+                            </li>
+                            <li class="list-inline-item">
+                                My leave requests
+                            </li>
+                        </ul>
                     </li>
                     <li class="py-2" routerLink="/leaves/edit/0" routerLinkActive="activeLink"
                         [routerLinkActiveOptions]="{exact:true}">
-                        <i class="las la-ticket-alt mr-2"></i>
-                        Request leave
+                        <ul class="list-inline link-list">
+                            <li class="list-inline-item">
+                                <i class="las la-calendar-plus mr-2"></i>
+                            </li>
+                            <li class="list-inline-item">
+                                New leave request
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
             <div class="sidenav-content-footer px-4">
-                <ul class="list-unstyled">
-                    <li class="py-2" (click)="signout()">
+                <ul class="list-inline link-list" (click)="signout()">
+                    <li class="list-inline-item">
                         <i class="las la-sign-out-alt mr-2"></i>
+                    </li>
+                    <li class="list-inline-item">
                         Logout
                     </li>
                 </ul>
@@ -57,27 +95,6 @@
 
         <div style="height: 90vh; overflow: auto;">
             <router-outlet></router-outlet>
-        </div>
-
-        <!--A2H section+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-        <div class="banner-wrapper" *ngIf="promptEvent">
-            <div class="a2h-section">
-                <ul class="list-unstyled">
-                    <li>
-                        <p class="h4">Add to your home screen</p>
-                    </li>
-                    <li class="my-2">
-                        <span class="badge badge-primary badge-pill badge-install" (click)="installPwa()">
-                            Install
-                        </span>
-                    </li>
-                    <li>
-                        <span class="badge badge-light badge-pill badge-cancel" (click)="hideBanner()">
-                            Not now
-                        </span>
-                    </li>
-                </ul>
-            </div>
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

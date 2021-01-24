@@ -15,7 +15,7 @@ mat-sidenav {
     flex-direction: column;
     height: 100vh;
     width: 250px;
-    background: #212121;
+    background: #2f2f2f;
     color: white;
 
     .sidenav-content-header {
@@ -23,7 +23,7 @@ mat-sidenav {
     }
 
     .sidenav-content-body {
-        ul li {
+        & > ul > li {
             cursor: pointer;
             color: #8f8d8d;
 
@@ -73,6 +73,12 @@ mat-sidenav {
 
     i {
         color: #0088ff !important;
+    }
+}
+
+.link-list {
+    li {
+        vertical-align: middle;
     }
 }
 

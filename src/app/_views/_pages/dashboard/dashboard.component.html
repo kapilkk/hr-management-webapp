@@ -16,12 +16,22 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-4 p-2">
-            <hrm-today-leaves></hrm-today-leaves>
+        <div class="col-12 col-md-4">
+            <div class="row">
+                <div class="col-12 p-2">
+                    <hrm-welcome-note [currentEmployee]="currentEmployee"></hrm-welcome-note>
+                </div>
+                <div class="col-12 p-2">
+                    <hrm-today-leaves></hrm-today-leaves>
+                </div>
+            </div>
         </div>
     </div>
     <ng-template #notHR>
         <div class="row">
+            <div class="col-12 p-2">
+                <hrm-welcome-note [currentEmployee]="currentEmployee"></hrm-welcome-note>
+            </div>
             <div class="col-12 p-2">
                 <hrm-c-e-analytics-leaves-yearly></hrm-c-e-analytics-leaves-yearly>
             </div>

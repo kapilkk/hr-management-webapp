@@ -10,20 +10,11 @@ export class SharedService {
   private sidenavEventSource = new BehaviorSubject<boolean>(true);
   sidenavEvent = this.sidenavEventSource.asObservable();
 
-  private promptEventSource = new BehaviorSubject<any>(null);
-  promptEvent = this.promptEventSource.asObservable();
-
   constructor() { }
 
   //fucntion to share the sidenav event data across the app, so as to sidenav keep opened or closed
   setSidenavEvent(sidenavEvent: boolean) {
     this.sidenavEventSource.next(sidenavEvent);
-  }
-
-
-  //function to share the event data for pwa installation
-  setPromptEvent(promptEvent: any) {
-    this.promptEventSource.next(promptEvent);
   }
 
 

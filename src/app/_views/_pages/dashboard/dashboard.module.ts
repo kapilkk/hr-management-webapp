@@ -11,6 +11,7 @@ import { LayoutsModule } from '../../_layouts/layouts.module';
 import { MaterialSharedModule } from 'src/app/_core/_material_shared/material-shared.module';
 import { ChartsModule } from 'ng2-charts';
 import { CEAnalyticsLeavesYearlyComponent } from './common-employee/c-e-analytics-leaves-yearly/c-e-analytics-leaves-yearly.component';
+import { WelcomeNoteComponent } from './common/welcome-note/welcome-note.component';
 
 const routes: Routes = [
   {
@@ -27,7 +28,8 @@ const routes: Routes = [
     RecentEmployeesComponent,
     RecentLeaveRequestsComponent,
     DashboardComponent,
-    CEAnalyticsLeavesYearlyComponent
+    CEAnalyticsLeavesYearlyComponent,
+    WelcomeNoteComponent
   ],
   imports: [
     CommonModule,
