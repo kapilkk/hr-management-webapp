@@ -1,4 +1,4 @@
-# HrManagementWebapp
+# HR Management Webapp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.2.
 
@@ -6,22 +6,53 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## About
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This project deals with managing HRs, employees and their leaves.
 
-## Build
+- HR can manage employees, leave request, view summary of leaves by employees.
+- Employees can apply or cancel the leave requests.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+The webapp is made completely responsive for all desktop, tablet and mobile devices.
 
-## Running unit tests
+## Screenshots
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![alt text](screenshots/login.png)
 
-## Running end-to-end tests
+![alt text](screenshots/employee-dashboard.png)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+![alt text](screenshots/employee-add-leave-request.png)
 
-## Further help
+![alt text](screenshots/employee-all-leave-requests.png)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![alt text](screenshots/employee-all-leave-requests-1.png)
+
+![alt text](screenshots/hr-dashboard.png)
+
+![alt text](screenshots/hr-dashboard-1.png)
+
+![alt text](screenshots/hr-dashboard-2.png)
+
+![alt text](screenshots/hr-add-employee.png)
+
+![alt text](screenshots/employee-welcome-email.png)
+
+![alt text](screenshots/hr-all-filter-leave-requests.png)
+
+![alt text](screenshots/hr-all-filter-leave-requests-1.png)
+
+![alt text](screenshots/hr-all-filter-leave-requests-2.png)
+
+![alt text](screenshots/hr-employee-leave-summary.png)
+
+![alt text](screenshots/hr-employee-leave-summary-1.png)
+
+![alt text](screenshots/hr-search-filter-employees.png)
+
+![alt text](screenshots/hr-search-filter-employees-1.png)
+
+![alt text](screenshots/hr-search-filter-employees-2.png)
+
+![alt text](screenshots/hr-search-filter-employees-3.png)
+
+![alt text](screenshots/hr-search-filter-employees-4.png)
